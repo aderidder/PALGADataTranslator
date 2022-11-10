@@ -29,10 +29,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
@@ -47,8 +45,8 @@ import palgadatatranslator.utils.TextAreaAppender;
 /**
  * Main of the program
  */
-public class PALGADataTranslator extends Application {
-    private static final Logger logger = LogManager.getLogger(PALGADataTranslator.class.getName());
+public class MainWindow{
+    private static final Logger logger = LogManager.getLogger(MainWindow.class.getName());
     private static final ResourceManager resourceManager = new ResourceManager();
 
     private static final int sceneWidth = 800;
@@ -58,20 +56,8 @@ public class PALGADataTranslator extends Application {
 
     private RunParameters runParameters=getDefaultParameters();
 
-    /**
-     * Main
-     * @param args args
-     */
-    public static void main(String ... args) {
-        launch(args);
-    }
 
-    /**
-     * Create the main GUI window
-     * @param primaryStage the primary stage
-     */
-    @Override
-    public void start(Stage primaryStage) {
+    public void createMainWindow(Stage primaryStage) {
         primaryStage.setTitle("PALGA Protocol Data Translator");
 
         // create the components
