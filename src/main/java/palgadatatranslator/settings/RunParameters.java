@@ -32,13 +32,13 @@ import java.io.File;
  */
 public class RunParameters {
     private static final Logger logger = LogManager.getLogger(RunParameters.class.getName());
-    private String fromLanguage;
+    private final String fromLanguage;
 
-    private OutputFormatType outputFormatType;
-    private OutputFileType outputFileType;
-    private String protocolPrefix;
-    private String inputFileName;
-    private String protocolName;
+    private final OutputFormatType outputFormatType;
+    private final OutputFileType outputFileType;
+    private final String protocolPrefix;
+    private final String inputFileName;
+    private final String protocolName;
 
     /**
      * constructor for default run parameters

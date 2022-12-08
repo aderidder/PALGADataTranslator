@@ -48,9 +48,9 @@ import java.util.*;
  * Concept Value translation = preferred displayName --> concept code / displayName
  */
 class DecorCodebook {
-    private Map<String, Concept> palgaColNameToConceptMap = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
-    private Map<String, Concept> idToConceptMap = new HashMap<>();
-    private String version;
+    private final Map<String, Concept> palgaColNameToConceptMap = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
+    private final Map<String, Concept> idToConceptMap = new HashMap<>();
+    private final String version;
 
     /**
      * new Decor codebook

@@ -24,6 +24,7 @@ import palgadatatranslator.codebook.ProtocolCodebookManager;
 import palgadatatranslator.settings.RunParameters;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,7 +48,7 @@ class InputDataText extends InputDataDefault {
 
         // create buffered reader
         try(BufferedReader br = new BufferedReader(
-                new InputStreamReader(new FileInputStream(new File(runParameters.getInputFileName())), "ISO-8859-1"))) {
+                new InputStreamReader(new FileInputStream(new File(runParameters.getInputFileName())), StandardCharsets.ISO_8859_1))) {
             // read the first line of the recoder.data, which contains the header, and add it to our input recoder.data
             inputDataText.addHeader(br.readLine());
             // add other lines

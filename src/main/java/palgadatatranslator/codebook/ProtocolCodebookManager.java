@@ -44,16 +44,15 @@ import java.util.*;
  */
 public class ProtocolCodebookManager {
     private static final Logger logger = LogManager.getLogger(ProtocolCodebookManager.class.getName());
-    private static Map<String, ProtocolCodebookManager> protocolCodebookManagerMap = new HashMap<>();
-    private static Map<String, CodebookInfo> protocolInfoMap = new HashMap<>();
+    private static final Map<String, ProtocolCodebookManager> protocolCodebookManagerMap = new HashMap<>();
+    private static final Map<String, CodebookInfo> protocolInfoMap = new HashMap<>();
 
     // create a ordered map, which will allow us to easily find the newest codebook version
-    private Map<String, NavigableMap<String, DecorCodebook>> codebookMap = new HashMap<>();
+    private final Map<String, NavigableMap<String, DecorCodebook>> codebookMap = new HashMap<>();
 
     // datasetId is the same for the multiple languages, so we do not need a language key here
-//    private Map<String, String> datasetIdMap = new HashMap<>();
-    private String protocolPrefix;
-    private String fromLanguage; //e.g. nl-NL
+    private final String protocolPrefix;
+    private final String fromLanguage; //e.g. nl-NL
 
     /**
      * create a new protcol codebook manager
@@ -291,9 +290,9 @@ public class ProtocolCodebookManager {
      * stores information about a codebook
      */
     static class CodebookInfo {
-        private Map<String, List<String>> versionLanguageMap = new HashMap<>();
-        private List<String> uniqueLanguagesList = new ArrayList<>();
-        private Map<String, String> versionIdMap = new HashMap<>();
+        private final Map<String, List<String>> versionLanguageMap = new HashMap<>();
+        private final List<String> uniqueLanguagesList = new ArrayList<>();
+        private final Map<String, String> versionIdMap = new HashMap<>();
 
         /**
          * adds a mapping from the codebook version to the ART-DECOR id

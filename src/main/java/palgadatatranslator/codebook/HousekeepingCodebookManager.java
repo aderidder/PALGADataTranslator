@@ -56,7 +56,7 @@ public class HousekeepingCodebookManager {
 //    private Map<String, DecorCodebook> codebookMap = new HashMap<>();
     private DecorCodebook codebook;
     private String datasetId;
-    private String fromLanguage; //e.g. nl-NL
+    private final String fromLanguage; //e.g. nl-NL
 
     /**
      * return the housekeeping codebook manager for the language which is available in the runsettings
@@ -152,7 +152,7 @@ public class HousekeepingCodebookManager {
                 // newest version will be at the last position of the list
                 Element element = (Element) nodeList.item(nodeList.getLength()-1);
                 datasetId = element.getAttribute("id");
-                logger.log(Level.INFO, "Found version {} with id {}",element.getAttribute("versionLabel")+" "+element.getAttribute("id"));
+                logger.log(Level.INFO, "Found version {} with id {}",element.getAttribute("versionLabel"), element.getAttribute("id"));
             }
         } catch (Exception e){
             String message = "There was an issue retrieving retrieving version information of available housekeeping codebook data using the following uri: "+uri+"\nPerhaps it doesn't exist yet?";

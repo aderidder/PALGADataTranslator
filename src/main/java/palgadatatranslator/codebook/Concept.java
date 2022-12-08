@@ -108,10 +108,10 @@ class Concept {
     /**
      * class which defines a single concept list item (one option's code, description and codesystem)
      */
-    private class ConceptListItem {
-        private String valueCode;
-        private String valueCodeSystem;
-        private String valueDisplayName;
+    private static class ConceptListItem {
+        private final String valueCode;
+        private final String valueCodeSystem;
+        private final String valueDisplayName;
 
         /**
          * new conceptlistitem
@@ -132,20 +132,15 @@ class Concept {
          * @throws Exception
          */
         private String getTranslation(OutputFormatType type) throws Exception{
-            switch(type){
-                case CODES:
-                    return valueCode;
-                case CODES_AND_DESCRIPTIONS:
-                    return valueCode+":"+valueDisplayName;
-                case CODESYSTEM_AND_CODES:
-                    return valueCodeSystem+":"+valueCode;
-                case DESCRIPTIONS:
-                    return valueDisplayName;
-                case CODESYSTEM_AND_CODES_AND_DESCRIPTIONS:
-                    return valueCodeSystem+":"+valueCode+":"+valueDisplayName;
-                default:
-                    throw new Exception("type "+type+" does not exist");
-            }
+            return switch (type) {
+                case CODES -> valueCode;
+                case CODES_AND_DESCRIPTIONS -> valueCode + ":" + valueDisplayName;
+                case CODESYSTEM_AND_CODES -> valueCodeSystem + ":" + valueCode;
+                case DESCRIPTIONS -> valueDisplayName;
+                case CODESYSTEM_AND_CODES_AND_DESCRIPTIONS ->
+                        valueCodeSystem + ":" + valueCode + ":" + valueDisplayName;
+                default -> throw new Exception("type " + type + " does not exist");
+            };
         }
 
     }
@@ -154,10 +149,10 @@ class Concept {
      * class which stores the terminology for the concept
      * it basically stores the translation of the concept
      */
-    private class ConceptTerminology {
-        private String conceptCode;
-        private String conceptCodeSystem;
-        private String conceptDisplayName;
+    private static class ConceptTerminology {
+        private final String conceptCode;
+        private final String conceptCodeSystem;
+        private final String conceptDisplayName;
 
         /**
          * new terminology
@@ -178,20 +173,15 @@ class Concept {
          * @throws Exception
          */
         private String getTranslation(OutputFormatType type) throws Exception{
-            switch(type){
-                case CODES:
-                    return conceptCode;
-                case CODES_AND_DESCRIPTIONS:
-                    return conceptCode+":"+conceptDisplayName;
-                case CODESYSTEM_AND_CODES:
-                    return conceptCodeSystem+":"+conceptCode;
-                case DESCRIPTIONS:
-                    return conceptDisplayName;
-                case CODESYSTEM_AND_CODES_AND_DESCRIPTIONS:
-                    return conceptCodeSystem+":"+conceptCode+":"+conceptDisplayName;
-                default:
-                    throw new Exception("type "+type+" does not exist");
-            }
+            return switch (type) {
+                case CODES -> conceptCode;
+                case CODES_AND_DESCRIPTIONS -> conceptCode + ":" + conceptDisplayName;
+                case CODESYSTEM_AND_CODES -> conceptCodeSystem + ":" + conceptCode;
+                case DESCRIPTIONS -> conceptDisplayName;
+                case CODESYSTEM_AND_CODES_AND_DESCRIPTIONS ->
+                        conceptCodeSystem + ":" + conceptCode + ":" + conceptDisplayName;
+                default -> throw new Exception("type " + type + " does not exist");
+            };
         }
     }
 }

@@ -498,11 +498,11 @@ class GUIWizard {
      * the idea is that if different/more/fewer languages are selected, the user can add the
      * necessary information on newly generated pages
      */
-    class WizardFlow implements Wizard.Flow {
-        private List<WizardPane> pageList;
+    static class WizardFlow implements Wizard.Flow {
+        private final List<WizardPane> pageList;
 
         public WizardFlow(Collection<WizardPane> pages) {
-            this.pageList = new ArrayList(pages);
+            this.pageList = new ArrayList<>(pages);
         }
 
         public WizardFlow(WizardPane... pages) {

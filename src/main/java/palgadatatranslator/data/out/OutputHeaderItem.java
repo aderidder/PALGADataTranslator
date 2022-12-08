@@ -29,9 +29,9 @@ package palgadatatranslator.data.out;
  * "normal" support for the wide format?
  */
 public class OutputHeaderItem {
-    private String origHeaderName;
-    private String translatedName;
-    private int repeat;
+    private final String origHeaderName;
+    private final String translatedName;
+    private final int repeat;
 
     /**
      * constructor for header without repeats (long format)

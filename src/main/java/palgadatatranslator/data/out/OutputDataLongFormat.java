@@ -24,6 +24,7 @@ import palgadatatranslator.settings.RunParameters;
 import java.io.BufferedWriter;
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -33,7 +34,7 @@ import java.util.stream.Collectors;
  */
 public class OutputDataLongFormat extends OutputDataDefault{
 
-    private List<List<String>> lines = new ArrayList<>();
+    private final List<List<String>> lines = new ArrayList<>();
 
     /**
      * Long format output data
@@ -65,7 +66,7 @@ public class OutputDataLongFormat extends OutputDataDefault{
      */
     public void writeData(){
         String outFileName = runParameters.getDataOutFileName();
-        try(BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(outFileName), "ISO-8859-1"))){
+        try(BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(outFileName), StandardCharsets.ISO_8859_1))){
             // write the header; headerlist contains OutputHeaderItems
             bufferedWriter.write(headerList.stream().map(f-> f.getTranslatedName()).collect(Collectors.joining("\t"))+System.lineSeparator());
 

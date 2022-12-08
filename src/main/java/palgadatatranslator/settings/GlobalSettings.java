@@ -26,7 +26,7 @@ import java.util.*;
  */
 public class GlobalSettings {
     public static String server = "https://decor.nictiz.nl/services/";
-    private static Map<String, String> protocolNameToPrefixMap = new TreeMap<>();
+    private static final Map<String, String> protocolNameToPrefixMap = new TreeMap<>();
 
     // in the future this will be read from some file
     static{

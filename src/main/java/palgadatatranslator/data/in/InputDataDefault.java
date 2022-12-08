@@ -148,7 +148,7 @@ abstract class InputDataDefault implements InputData {
     void checkRomans(){
         ProtocolCodebookManager protocolCodebookManager = ProtocolCodebookManager.getProtocolManager(runParameters);
         HousekeepingCodebookManager housekeepingCodebookManager = HousekeepingCodebookManager.getProtocolManager(runParameters);
-        origHeaderList.stream().forEach(t->setRomans(housekeepingCodebookManager, protocolCodebookManager, t));
+        origHeaderList.forEach(t->setRomans(housekeepingCodebookManager, protocolCodebookManager, t));
     }
 
     /**

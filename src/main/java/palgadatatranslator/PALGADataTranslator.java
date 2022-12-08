@@ -17,7 +17,8 @@
  * along with PALGA Protocol Data Translator. If not, see <http://www.gnu.org/licenses/>
  */
 
-package palgadatatranslator;import javafx.application.Application;
+package palgadatatranslator;
+import javafx.application.Application;
 import javafx.stage.Stage;
 import palgadatatranslator.gui.MainWindow;
 
